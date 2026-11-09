@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Gancho pre-commit de PULSO: bloquea material no publicable en lo preparado.
+# Activación local (una vez por clon): git config core.hooksPath .githooks
+exec "$(git rev-parse --show-toplevel)/scripts/check-publication.sh" --staged

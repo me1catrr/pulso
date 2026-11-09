@@ -1,0 +1,47 @@
+# --- Quarto ---
+/_site/
+/.quarto/
+*.quarto_ipynb
+# _freeze/ SÍ se versiona
+
+# --- Privado: nunca en Git ---
+/fuentes
+/_notas/
+/docs/
+terminos-vetados*
+
+# --- Documentación de terceros y ofimática ---
+*.pdf
+*.key
+*.doc
+*.docx
+*.ppt
+*.pptx
+*.xls
+*.xlsx
+*.pages
+*.numbers
+*.heic
+
+# --- Registros y configuraciones de equipos ---
+*.mseed
+*.miniseed
+*.msd
+*.seed
+*.sac
+*.gsbu
+*.evt
+*.xml
+!/simuladores/**/*.xml
+!/experimentos/**/*.xml
+/datos/*
+!/datos/sinteticos/
+
+# --- Entorno ---
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+.claude/settings.local.json

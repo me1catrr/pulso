@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Gancho pre-push de PULSO: audita archivos versionados e historial completo.
+# Activación local (una vez por clon): git config core.hooksPath .githooks
+exec "$(git rev-parse --show-toplevel)/scripts/check-publication.sh" --tracked --history
