@@ -1,0 +1,235 @@
+/* =============================================================================
+   PULSO: estilos del sitio
+   -----------------------------------------------------------------------------
+   Paleta (la misma que assets/identidad/pulso-identidad.sty):
+     granate #9d2235 (acento) · ámbar #f2a900 (instante de disparo)
+     verde #1f7a6f · pizarra #475569 · ocre #8a5a00 · gris #6b7280
+   Diseño sobrio, hermano del de RESONANCIA, con acento propio.
+   Regla de accesibilidad: cada caja lleva rótulo escrito y símbolo; el color
+   nunca es la única señal. Contraste de texto sobre fondo ≥ 7:1.
+
+   Cajas disponibles (Markdown de Quarto):
+     ::: {.pregunta-guia}   pregunta de ingeniería que abre la página
+     ::: {.recordatorio}    un párrafo y un enlace a RESONANCIA (regla anti-duplicación)
+     ::: {.fabricante}      evidencia: documentado por el fabricante
+     ::: {.verificado}      evidencia: comprobado experimentalmente
+     ::: {.pendiente}       evidencia: sin comprobar
+     ::: {.historia}        nota histórica de «Concepto y origen»
+     ::: {.ficha-equipo}    tabla de identificación de un equipo
+     ::: {.foto-equipo}     fotografía verificada, con su [crédito]{.credito-foto}
+     ::: {.laboratorio .solo-pantalla}  simulador (se oculta al imprimir)
+     ::: {.solo-impresion}              figura estática que lo sustituye al imprimir
+   ========================================================================== */
+
+:root {
+  --p-granate: #9d2235;
+  --p-granate-oscuro: #6e1524;
+  --p-granate-fondo: #fbf1f3;
+  --p-ambar: #f2a900;
+  --p-verde: #1f7a6f;
+  --p-pizarra: #475569;
+  --p-ocre: #8a5a00;
+  --p-gris: #6b7280;
+
+  --p-borde: #e2d9db;
+  --p-fila-par: #faf8f8;
+  --p-texto-suave: #4b5563;
+
+  /* Compatibilidad con el nombre provisional de la fase 1 */
+  --pulso-acento: var(--p-granate);
+}
+
+/* ---------- Acento en los elementos del tema ---------- */
+.navbar { background-color: var(--p-granate-oscuro) !important; border-bottom: 3px solid var(--p-ambar); }
+.navbar .navbar-brand, .navbar .nav-link, .navbar .navbar-title { color: #ffffff !important; }
+.navbar .nav-link:hover, .navbar .nav-link:focus-visible, .navbar .nav-link.active {
+  text-decoration: underline; text-underline-offset: 0.35em; text-decoration-thickness: 2px;
+}
+.navbar .navbar-logo { max-height: 30px; border-radius: 6px; }
+.navbar #quarto-search .aa-DetachedSearchButton, .navbar .aa-DetachedSearchButtonIcon,
+.navbar .quarto-navbar-tools a, .navbar .navbar-toggler { color: #ffffff; }
+
+.content a, .sidebar a:hover, #quarto-margin-sidebar a:hover { color: var(--p-granate); }
+.content a:hover, .content a:focus-visible { color: var(--p-granate-oscuro); }
+.content h2 { border-bottom: 1px solid var(--p-borde); padding-bottom: 0.3rem; }
+
+.navbar .dropdown-menu { border-top: 3px solid var(--p-ambar); }
+.navbar .dropdown-item:hover, .navbar .dropdown-item:focus-visible { background: var(--p-granate-fondo); color: var(--p-granate-oscuro); }
+.sidebar-navigation .sidebar-title { font-weight: 700; color: var(--p-granate-oscuro); }
+
+/* Navegación lateral e índice «En esta página»: la posición se marca con negrita y barra */
+.sidebar-navigation .sidebar-item .sidebar-link.active,
+.sidebar-navigation .sidebar-item .sidebar-link:hover { color: var(--p-granate-oscuro) !important; }
+.sidebar-navigation .sidebar-item .sidebar-link.active { font-weight: 600; }
+.sidebar nav[role="doc-toc"] ul li a.nav-link.active,
+.sidebar nav[role="doc-toc"] ul > li > ul > li > a.nav-link.active {
+  color: var(--p-granate-oscuro) !important;
+  font-weight: 600;
+  background: var(--p-granate-fondo);
+  border-left: 3px solid var(--p-ambar) !important;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Una sección sin ninguna página visible (todas en borrador) no se muestra */
+.sidebar-navigation .sidebar-item-section:not(:has(a[href])) { display: none; }
+
+/* ---------- Pregunta de ingeniería ---------- */
+.pregunta-guia {
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--p-granate-oscuro);
+  border-left: 0.35rem solid var(--p-granate);
+  background: var(--p-granate-fondo);
+  border-radius: 0 0.4rem 0.4rem 0;
+  padding: 0.7rem 1rem;
+  margin: 1.5rem 0;
+}
+.pregunta-guia > :last-child { margin-bottom: 0; }
+
+/* ---------- Recordatorio (enlace a RESONANCIA) y niveles de evidencia ---------- */
+.recordatorio, .fabricante, .verificado, .pendiente {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1rem 0.6rem;
+  border-left: 0.35rem solid var(--caja-borde);
+  border-radius: 0 0.4rem 0.4rem 0;
+  background: var(--caja-fondo);
+}
+.recordatorio::before, .fabricante::before, .verificado::before, .pendiente::before {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--caja-rotulo);
+}
+.recordatorio > :last-child, .fabricante > :last-child,
+.verificado > :last-child, .pendiente > :last-child { margin-bottom: 0; }
+
+.recordatorio { --caja-borde: var(--p-granate); --caja-fondo: var(--p-granate-fondo); --caja-rotulo: #6e1524; }
+.recordatorio::before { content: "↗ Recordatorio"; }
+.fabricante { --caja-borde: var(--p-pizarra); --caja-fondo: #f1f4f8; --caja-rotulo: #2b3647; }
+.fabricante::before { content: "▤ Documentado por el fabricante"; }
+.verificado { --caja-borde: var(--p-verde); --caja-fondo: #e9f6f3; --caja-rotulo: #14574f; }
+.verificado::before { content: "✔ Verificado experimentalmente"; }
+.pendiente { --caja-borde: var(--p-ocre); --caja-fondo: #fff7e6; --caja-rotulo: #5f3d00; border-left-style: dashed; }
+.pendiente::before { content: "⚠ Pendiente de comprobar"; }
+
+/* ---------- Nota histórica («Concepto y origen») ---------- */
+.historia {
+  margin: 1.2rem 0; padding: 0.7rem 1rem 0.6rem;
+  border-left: 0.35rem solid var(--p-ocre); border-radius: 0 0.4rem 0.4rem 0; background: #f8efdc;
+}
+.historia::before {
+  content: "◷ Origen"; display: block; margin-bottom: 0.3rem;
+  font-size: 0.82rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #5f3d00;
+}
+.historia > :last-child { margin-bottom: 0; }
+
+/* ---------- Ficha de identificación de un equipo ---------- */
+.content .ficha-equipo table {
+  display: table; width: 100%; border-collapse: separate; border-spacing: 0;
+  border: 1px solid var(--p-borde); border-radius: 8px; overflow: hidden; font-size: 0.95rem;
+}
+.ficha-equipo thead { display: none; }
+.ficha-equipo td { padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--p-borde); vertical-align: top; }
+.ficha-equipo tr:last-child td { border-bottom: 0; }
+.ficha-equipo td:first-child { width: 14rem; font-weight: 600; color: var(--p-granate-oscuro); background: var(--p-granate-fondo); }
+
+/* ---------- Figuras: tarjeta limpia y pie legible ---------- */
+figure.quarto-float img, figure.quarto-float svg { max-width: 100%; height: auto; }
+.quarto-figure img.figure-img, figure.figure > p > img, figure.quarto-float img.img-fluid {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.7rem;
+  box-shadow: 0 1px 4px rgba(31, 41, 55, 0.07);
+}
+figure.quarto-float { margin: 1.5rem auto; }
+figure.quarto-float > figcaption, .quarto-figure figcaption {
+  margin-top: 0.6rem; font-size: 0.9rem; line-height: 1.45; color: var(--p-texto-suave); text-align: left;
+}
+
+/* ---------- Fotografías de equipos: figura con crédito ---------- */
+.foto-equipo { margin: 1.2rem 0; }
+.foto-equipo img { width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid #e5e7eb; }
+.credito-foto { display: block; margin-top: 0.3rem; font-size: 0.8rem; color: var(--p-texto-suave); }
+
+/* ---------- Simuladores: versión de pantalla y alternativa estática para imprimir ---------- */
+.laboratorio {
+  margin: 1rem 0 1.4rem; padding: 0.7rem 0.9rem;
+  border: 1px solid #d3c8ca; border-top: 0.3rem solid var(--p-granate);
+  border-radius: 0.4rem; background: #fdfbfb;
+}
+.laboratorio .lectura { margin-top: 0.4rem; font-size: 0.95rem; }
+.laboratorio .code-copy-outer-scaffold { display: none; }
+.laboratorio figure { margin: 0.6rem 0 0; }
+.laboratorio figcaption { font-size: 0.85rem; color: var(--p-texto-suave); }
+.laboratorio form { max-width: 100%; }
+.solo-impresion { display: none; }
+@media print {
+  .solo-pantalla, .laboratorio { display: none !important; }
+  .solo-impresion { display: block !important; }
+}
+
+/* ---------- Diseño adaptable ---------- */
+.content p, .content li { max-width: 78ch; }
+.content .cell-output-display, .content div.sourceCode, .content pre { max-width: 100%; overflow-x: auto; }
+.content table { display: block; max-width: 100%; overflow-x: auto; }
+.content mjx-container[display="true"] { max-width: 100%; min-width: 0 !important; overflow-x: auto; overflow-y: hidden; }
+.content img, .content svg, .content video, .content canvas { max-width: 100%; height: auto; }
+.content, .content * { overflow-wrap: break-word; }
+.content pre, .content pre * { overflow-wrap: normal; }
+.content :not(pre) > code { white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }
+
+/* =============================================================================
+   Portada (index.qmd): cabecera con la marca y tarjetas de los ámbitos.
+   Se activa solo si la página contiene .ambitos. Cada tarjeta lleva su letra y
+   su rótulo. Texto blanco sobre el degradado ≥ 7:1.
+   ========================================================================== */
+body:has(.ambitos) .quarto-title-banner {
+  background: linear-gradient(120deg, #57101c 0%, #7c1a2a 55%, #9d2235 100%) !important;
+  border-bottom: 5px solid var(--p-ambar);
+  color: #ffffff;
+}
+body:has(.ambitos) .quarto-title-banner .title {
+  color: #ffffff; letter-spacing: 0.02em;
+  padding-left: 4.4rem; min-height: 3.6rem; display: flex; align-items: center;
+  background: url("assets/identidad/marca.svg") left center / 3.6rem 3.6rem no-repeat;
+}
+body:has(.ambitos) .quarto-title-banner .subtitle { color: #ffffff; }
+body:has(.ambitos) .quarto-title-banner .description { color: #ffd98a; font-weight: 600; font-size: 1.1rem; opacity: 1; }
+body:has(.ambitos) .quarto-title-banner .description p { margin: 0; }
+
+.ambitos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+.ambito {
+  padding: 1rem 1.1rem 0.9rem;
+  border-radius: 0.6rem;
+  border: 1px solid var(--ambito-borde);
+  border-top: 6px solid var(--ambito-color);
+  background: var(--ambito-fondo);
+  box-shadow: 0 2px 8px rgba(31, 41, 55, 0.08);
+}
+/* Fotografía opcional de la tarjeta: primer elemento, a sangre, con proporción fija */
+.ambito:has(> p > img.ambito-foto) { padding-top: 0; overflow: hidden; }
+.ambito > p:has(> img.ambito-foto) { display: block !important; margin: 0 -1.1rem 0.8rem !important; }
+.ambito img.ambito-foto { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.ambito > p { margin: 0; }
+.ambito > p:first-child { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.6rem; }
+.ambito-letra {
+  flex: 0 0 auto;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.4rem; height: 2.4rem; border-radius: 50%;
+  background: var(--ambito-color); color: #ffffff;
+  font-weight: 700; font-size: 1.25rem;
+}
+.ambito-titulo { font-weight: 700; font-size: 1.05rem; line-height: 1.25; color: var(--ambito-texto); }
+.ambito-f { --ambito-color: #9d2235; --ambito-fondo: #fbf1f3; --ambito-borde: #ecc9cf; --ambito-texto: #6e1524; }
+.ambito-e { --ambito-color: #475569; --ambito-fondo: #f1f4f8; --ambito-borde: #cfd7e2; --ambito-texto: #2b3647; }
+.ambito-l { --ambito-color: #1f7a6f; --ambito-fondo: #e9f6f3; --ambito-borde: #bfe0da; --ambito-texto: #14574f; }

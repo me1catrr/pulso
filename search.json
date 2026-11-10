@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Acerca de PULSO",
+    "section": "",
+    "text": "PULSO es un recurso docente y técnico de la Universidad de Córdoba, elaborado por Rafael Castro Triguero. Documenta el equipamiento de instrumentación disponible en la colaboración entre la Universidad de Córdoba y la Universidad de Granada. Es un proyecto hermano de RESONANCIA, independiente de ella.\nPara comunicar erratas o sugerencias, abre una incidencia en https://github.com/me1catrr/pulso/issues."
+  },
+  {
+    "objectID": "about.html#licencias",
+    "href": "about.html#licencias",
+    "title": "Acerca de PULSO",
+    "section": "Licencias",
+    "text": "Licencias\n\n\n\nComponente\nLicencia\n\n\n\n\nTexto, figuras y diagramas originales\nCC BY 4.0\n\n\nCódigo (Julia, Python, JavaScript, scripts)\nMIT\n\n\nDatos sintéticos\nCC BY 4.0\n\n\nMaterial de terceros (documentación de fabricantes, figuras, registros)\nExcluido. Pertenece a sus titulares; se indica en cada caso\n\n\n\nLos contenidos de RESONANCIA (CC BY-SA 4.0) no se reproducen en PULSO: se enlazan."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "PULSO",
+    "section": "",
+    "text": "¿Puedo fiarme de este registro?\nPULSO reúne lo que hay que saber para configurar un sistema de adquisición, justificar cada parámetro y verificar experimentalmente que los registros son fiables. Es un recurso docente y técnico de la Universidad de Córdoba.\nPULSO no es un manual de fabricante. Las funciones de cada equipo se presentan indicando siempre si proceden de la documentación del fabricante o si se han comprobado experimentalmente."
+  },
+  {
+    "objectID": "index.html#equipamiento",
+    "href": "index.html#equipamiento",
+    "title": "PULSO",
+    "section": "Equipamiento",
+    "text": "Equipamiento\nPULSO se organiza por equipos: los instrumentos de los que se dispone en la colaboración entre la Universidad de Córdoba y la Universidad de Granada. Cada capítulo reúne la teoría indispensable de su tecnología, la configuración real y las prácticas que se hacen con el equipo.\n\n\n1 GeoSIG GMSplus\nRegistradores autónomos: muestreo, disparo, tiempo y formatos.\n\n\n2 PCB Piezotronics\nAcelerómetros piezoeléctricos.\n\n\n3 Columbia\nAcelerómetros de balance de fuerzas.\n\n\n4 Siemens\nSCADAS Mobile, Test.Lab y Test.Xpress: adquisición multicanal y procedimientos de ensayo.\n\n\n5 LDS\nExcitador y amplificador para ensayos con excitación controlada.\n\n\n6 Tektronix\nOsciloscopios para verificar señales."
+  },
+  {
+    "objectID": "index.html#relación-con-resonancia",
+    "href": "index.html#relación-con-resonancia",
+    "title": "PULSO",
+    "section": "Relación con RESONANCIA",
+    "text": "Relación con RESONANCIA\nPULSO explica cómo se usa un equipo y cómo se obtiene una medida fiable. RESONANCIA desarrolla los fundamentos generales de señales, vibraciones e identificación modal para interpretarla. PULSO no los repite: los enlaza.\n\n\n\n\n\n\nNotaEn construcción\n\n\n\nPULSO está en construcción. Las páginas de cada equipo se publican a medida que se revisan."
+  }
+]
