@@ -3,11 +3,11 @@
 Cada carpeta contiene un script Julia (solo biblioteca estándar, semilla fija) y el fixture JSON que genera.
 Los simuladores del sitio web (en `pulso-quarto`) se comprueban contra estos fixtures.
 
-| Carpeta | Laboratorio | Qué calcula |
+| Carpeta | Capítulo del sitio | Qué calcula |
 |---|---|---|
-| `cadena-medida/` | L1 | Magnitud física → tensión → cuentas del convertidor: resolución, saturación y error de cuantificación |
-| `sincronizacion/` | L3 | Error de reloj entre dos registradores y su estimación por correlación cruzada |
-| `sta-lta/` | L4 | Cociente STA/LTA clásico, disparos y ventanas con pre y post-evento |
+| `cadena-medida/` | Siemens · cadena de medida | Magnitud física → tensión → cuentas del convertidor: resolución, saturación y error de cuantificación |
+| `sincronizacion/` | GeoSIG · tiempo y sincronización | Error de reloj entre dos registradores y su estimación por correlación cruzada |
+| `sta-lta/` | GeoSIG · registro y disparo | Cociente STA/LTA clásico, disparos y ventanas con pre y post-evento |
 
 ```bash
 julia experimentos/cadena-medida/cadena_medida.jl
